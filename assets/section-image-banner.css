@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  min-height: calc(100vh - 206px);
+  min-height: 100vh;
 }
 
 .banner__box {
@@ -84,7 +84,7 @@
 
   .banner--large:not(.banner--adapt) {
     /* min-height: 72rem; */
-    min-height: calc(100vh - 206px);    
+    min-height: 100vh;    
   }
 
   .banner__content.banner__content--top-left {
