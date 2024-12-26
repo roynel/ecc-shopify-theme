@@ -119,20 +119,6 @@
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
-          {%- when 'image' -%}
-            <div class="image_container">
-              {% if block.settings.logo_image != blank %}
-                <img 
-                  class="image"
-                  src="{{ block.settings.logo_image | image_url }}" 
-                  loading="lazy" 
-                  height="{{ block.settings.logo_image_height }}" 
-                  width="{{ block.settings.logo_image_width }}"
-                />
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
-            </div>
           {%- when 'heading' -%}
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
@@ -376,38 +362,6 @@
     }
   ],
   "blocks": [
-    {
-      "type": "image",
-      "name": "Image",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "logo_image",
-          "label": "Logo Image"
-        },
-        {
-          "type": "range",
-          "id": "logo_image_width",
-          "min": 50,
-          "max": 400,
-          "step": 1,
-          "unit": "px",
-          "label": "Image width",
-          "default": 100
-        },
-        {
-          "type": "range",
-          "id": "logo_image_height",
-          "min": 50,
-          "max": 400,
-          "step": 1,
-          "unit": "px",
-          "label": "Image height",
-          "default": 100
-        }
-      ]
-    },
     {
       "type": "heading",
       "name": "t:sections.image-banner.blocks.heading.name",
