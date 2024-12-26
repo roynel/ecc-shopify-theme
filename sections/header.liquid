@@ -130,7 +130,7 @@
       endif
     -%}
 
-    {%- if section.settings.logo_position != 'middle-center' && request.page_type != 'index' -%}
+    {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading test1">
       {%- endif -%}
@@ -170,7 +170,7 @@
       endif
     %}
 
-    {%- if section.settings.logo_position == 'middle-center' && request.page_type != 'index' -%}
+    {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading test2">
       {%- endif -%}
