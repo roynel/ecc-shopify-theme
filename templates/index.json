@@ -17,10 +17,22 @@
           "settings": {
             "logo_image": "shopify://shop_images/ecc-full-white-logo.png"
           }
+        },
+        "buttons_ndpiYD": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
         }
       },
       "block_order": [
-        "image_67GLUz"
+        "image_67GLUz",
+        "buttons_ndpiYD"
       ],
       "settings": {
         "image": "shopify://shop_images/moon-cat.jpg",
