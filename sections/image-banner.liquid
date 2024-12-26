@@ -116,7 +116,6 @@
       <span class="test"></span>
       {%- for block in section.blocks -%}
         {%- case block.type -%}
-          {%- when 'inner_image' -%}
             <div class="banner-block-image {{ block.settings.inner_image_alignment }}">
               <img
                 srcset="{{ block.settings.inner_image | image_url: width: block.settings.inner_image_width }}, {{ block.settings.inner_image | image_url: width: image_size_2x }} 2x"
