@@ -128,16 +128,7 @@
               >
             </div>
           {%- when 'heading' -%}
-            <div class="banner-block-image {{ block.settings.inner_image_alignment }}">
-              <img
-                srcset="{{ block.settings.inner_image | image_url: width: block.settings.inner_image_width }}, {{ block.settings.inner_image | image_url: width: image_size_2x }} 2x"
-                src="{{ block.settings.inner_image | image_url: width: 760 }}"
-                alt="{{ block.settings.inner_image.alt | escape }}"
-                loading="lazy"
-                width="{{ block.settings.inner_image.width }}"
-                height="{{ block.settings.inner_image.height }}"
-              >
-            </div>
+            <span>{{ block.settings.inner_image }}</span>
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
@@ -487,7 +478,7 @@
     },
     {
       "type": "image",
-      "name": "t:sections.image-banner.blocks.inner_image.name",
+      "name": "Image",
       "limit": 1,
       "settings": [
         {
