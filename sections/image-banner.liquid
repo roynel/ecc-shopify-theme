@@ -115,6 +115,7 @@
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
+          <span class="test"></span>
           {%- when 'inner_image' -%}
             <div class="banner-block-image {{ block.settings.inner_image_alignment }}">
               <img
@@ -481,7 +482,7 @@
         {
           "type": "image_picker",
           "id": "inner_image",
-          "label": "Inner Image"
+          "label": "Image"
         },
         {
           "type": "range",
