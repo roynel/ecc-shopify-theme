@@ -23,6 +23,7 @@
         "image_67GLUz"
       ],
       "settings": {
+        "image": "shopify://shop_images/background.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "middle-center",
