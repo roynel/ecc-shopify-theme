@@ -27,6 +27,16 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
+  .image_container{
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+  }
+  .image_container .image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -385,16 +395,6 @@
           "type": "image_picker",
           "id": "logo_image",
           "label": "Logo Image"
-        },
-        {
-          "type": "range",
-          "id": "logo_image_width",
-          "min": 50,
-          "max": 550,
-          "step": 1,
-          "unit": "px",
-          "label": "Image width",
-          "default": 100
         }
       ]
     },
