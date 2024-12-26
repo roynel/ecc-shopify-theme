@@ -15,7 +15,7 @@
         "image_67GLUz": {
           "type": "image",
           "settings": {
-            "logo_image": "shopify://shop_images/ecc-full-logo.png"
+            "logo_image": "shopify://shop_images/ecc-full-white-logo.png"
           }
         }
       },
@@ -23,10 +23,10 @@
         "image_67GLUz"
       ],
       "settings": {
-        "image": "shopify://shop_images/background.jpg",
+        "image": "shopify://shop_images/moon-cat.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "bottom-left",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "inverse",
