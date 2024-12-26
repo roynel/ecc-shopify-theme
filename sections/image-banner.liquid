@@ -115,6 +115,17 @@
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
+          {%- when 'inner_image' -%}
+            <div class="banner-block-image {{ block.settings.inner_image_alignment }}">
+              <img
+                srcset="{{ block.settings.inner_image | image_url: width: block.settings.inner_image_width }}, {{ block.settings.inner_image | image_url: width: image_size_2x }} 2x"
+                src="{{ block.settings.inner_image | image_url: width: 760 }}"
+                alt="{{ block.settings.inner_image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.inner_image.width }}"
+                height="{{ block.settings.inner_image.height }}"
+              >
+            </div>
           {%- when 'heading' -%}
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
@@ -465,16 +476,16 @@
     },
     {
       "type": "image",
-      "name": "Image",
+      "name": "Inner Image",
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "inner_image",
+          "label": "Inner Image"
         },
         {
           "type": "range",
-          "id": "image_width",
+          "id": "inner_image_width",
           "min": 50,
           "max": 550,
           "step": 5,
@@ -484,7 +495,7 @@
         },
         {
           "type": "select",
-          "id": "alignment",
+          "id": "inner_image_alignment",
           "label": "Image alignment on large screen",
           "options": [
             {
