@@ -1,4 +1,3 @@
-// Search Bar Typing Animation
 function searchBarAnimation() {
     const searchPlaceholder = document.querySelector('.search-placeholder .animated-text');
     const words = ["candles", "tarot cards", "spells"];
@@ -21,7 +20,7 @@ function searchBarAnimation() {
       } else if (isDeleting && typedText === "") {
         // Move to the next word after deleting
         isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
+        wordIndex = (wordIndex + 1) % words.length; // Cycle through all words
       }
   
       // Speed of typing/backspacing
