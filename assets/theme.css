@@ -69,11 +69,17 @@ a {
   font-size: 0.95rem;
   display: flex;
   gap: 0.25rem;
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 /* Animated Text Effect */
 .animated-text {
-  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  width: 0;
+  border-right: 2px solid #666; /* Blinking cursor */
+  animation: blink 1s infinite;
 }
 
 .animated-text .word {
@@ -108,8 +114,8 @@ a {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #666; }
 }
 
 /* User/Cart Icons */
