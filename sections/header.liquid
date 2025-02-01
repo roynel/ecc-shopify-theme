@@ -1,0 +1,29 @@
+<header class="header">
+  <nav class="header-nav">
+    <a href="/" class="logo">
+      <img src="{{ 'logo.png' | asset_img_url: 'x50' }}" alt="{{ shop.name }}">
+    </a>
+    <div class="nav-links">
+      {% for link in linklists.main-menu.links %}
+        <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="header-cta">
+      <a href="/cart" class="button">Cart ({{ cart.item_count }})</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .nav-link {
+    color: #fff;
+    margin: 0 1rem;
+  }
+</style>
