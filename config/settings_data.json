@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/ecc-full-logo.png"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "hero_title": "Unleash Your Creativity",
+          "hero_subtitle": "Transform your workflow with AI-powered tools.",
+          "cta_text": "Get Started",
+          "cta_url": ""
+        }
+      },
+      "features": {
+        "type": "features",
+        "settings": {}
+      },
+      "pricing": {
+        "type": "pricing",
+        "settings": {
+          "title": "Choose Your Plan"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
+}
