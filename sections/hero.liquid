@@ -1,0 +1,59 @@
+<div class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
+    <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
+    <a href="{{ section.settings.cta_url }}" class="button">{{ section.settings.cta_text }}</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Title",
+      "default": "Unleash Your Creativity"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Subtitle",
+      "default": "Transform your workflow with AI-powered tools."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [{
+    "name": "Hero Section",
+    "category": "Custom"
+  }]
+}
+{% endschema %}
+
+<style>
+  .hero {
+    background: linear-gradient(45deg, #0F0C29, #302B63, #24243E);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+</style>
