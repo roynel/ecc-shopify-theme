@@ -1,5 +1,4 @@
 <header class="header">
-  <!-- Top Bar (White Background) -->
   <div class="header-top">
     <a href="/" class="logo">
       {% if section.settings.logo %}
@@ -13,7 +12,7 @@
       {% endif %}
     </a>
 
-    <!-- Search Bar (Icon on Left + Animated Placeholder) -->
+    <!-- Search Bar with Animated Text -->
     <div class="search-bar">
       <form action="/search">
         <button type="submit" class="search-button">
@@ -27,7 +26,14 @@
           placeholder=" " 
           class="search-input"
         >
-        <span class="search-placeholder">Search for <span class="animated-text"></span></span>
+        <span class="search-placeholder">
+          Search for 
+          <span class="animated-text">
+            <span class="word">candles</span>
+            <span class="word">tarot cards</span>
+            <span class="word">spells</span>
+          </span>
+        </span>
       </form>
     </div>
 
@@ -47,7 +53,7 @@
     </div>
   </div>
 
-  <!-- Navigation Bar (Black Background) -->
+  <!-- Navigation Bar -->
   <nav class="header-nav">
     {% for link in linklists.main-menu.links %}
       <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>

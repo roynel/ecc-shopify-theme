@@ -15,7 +15,7 @@ a {
 /* ===== Header ===== */
 .header-top {
   background: white;
-  padding: 1.5rem 2rem;
+  padding: 2rem; /* Increased height for logo */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,12 +24,13 @@ a {
   border-bottom: 1px solid #eee;
 }
 
+/* Logo Size (93px height like Magick.com) */
 .logo-image {
-  height: 40px;
+  height: 93px;
   width: auto;
 }
 
-/* Search Bar with Left Icon + Animated Text */
+/* Search Bar with Animated Text */
 .search-bar {
   position: relative;
   flex: 0 1 600px;
@@ -66,30 +67,49 @@ a {
   color: #666;
   pointer-events: none;
   font-size: 0.95rem;
+  display: flex;
+  gap: 0.25rem;
 }
 
-/* Animated Typing Effect */
+/* Animated Text Effect */
 .animated-text {
-  display: inline-block;
-  width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  vertical-align: bottom;
-  animation: typing 8s infinite;
-  border-right: 2px solid #666;
+  position: relative;
 }
 
-@keyframes typing {
-  0% { width: 0; content: "candles"; }
-  10% { width: 6ch; }
-  20% { width: 0; }
-  30% { width: 0; content: "tarot cards"; }
-  40% { width: 11ch; }
-  60% { width: 11ch; }
-  70% { width: 0; }
-  80% { width: 0; content: "spells"; }
-  90% { width: 6ch; }
-  100% { width: 6ch; }
+.animated-text .word {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  animation: wordSwitch 12s infinite;
+}
+
+.animated-text .word:nth-child(1) { animation-delay: 0s; }
+.animated-text .word:nth-child(2) { animation-delay: 4s; }
+.animated-text .word:nth-child(3) { animation-delay: 8s; }
+
+@keyframes wordSwitch {
+  0% { opacity: 0; width: 0; }
+  5% { opacity: 1; width: auto; }
+  25% { opacity: 1; width: auto; }
+  30% { opacity: 0; width: 0; }
+  100% { opacity: 0; width: 0; }
+}
+
+/* Blinking Cursor */
+.animated-text::after {
+  content: "";
+  width: 2px;
+  height: 1em;
+  background: #666;
+  display: inline-block;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* User/Cart Icons */
@@ -122,7 +142,7 @@ a {
   justify-content: center;
 }
 
-/* Navigation Bar (Black Background) */
+/* Navigation Bar */
 .header-nav {
   background: #000;
   padding: 1rem 2rem;
