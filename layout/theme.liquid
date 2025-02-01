@@ -11,7 +11,7 @@
 <body>
   {% section 'header' %}
   <main>{{ content_for_layout }}</main>
-  {% section 'footer' %} {% comment %} Now valid because footer.liquid exists {% endcomment %}
+  {% section 'footer' %}
   {{ 'theme.js' | asset_url | script_tag }}
 </body>
 </html>
