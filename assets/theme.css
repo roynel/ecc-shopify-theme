@@ -13,72 +13,86 @@ a {
 }
 
 /* ===== Header ===== */
-.header {
-  background: #000;
-}
-
-/* Top Bar */
 .header-top {
+  background: white;
+  padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  border-bottom: 1px solid #eee;
 }
 
-.logo img {
-  height: 30px;
+.logo-image {
+  height: 40px;
   width: auto;
 }
 
-/* Search Bar Animation */
+/* Search Bar with Left Icon + Animated Text */
 .search-bar {
   position: relative;
-  flex: 0 1 500px;
+  flex: 0 1 600px;
   margin: 0 2rem;
+}
+
+.search-button {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  z-index: 2;
+  color: #666;
+  cursor: pointer;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem 0.75rem 3rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 999px;
-  color: white;
-  padding-right: 40px;
+  color: #333;
   font-size: 0.95rem;
 }
 
 .search-placeholder {
   position: absolute;
-  left: 1.5rem;
+  left: 3rem;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.6);
+  color: #666;
   pointer-events: none;
-  transition: all 0.3s;
   font-size: 0.95rem;
 }
 
-.search-input:focus + .search-placeholder,
-.search-input:not(:placeholder-shown) + .search-placeholder {
-  transform: translate(-10px, -50%);
-  opacity: 0;
+/* Animated Typing Effect */
+.animated-text {
+  display: inline-block;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: typing 8s infinite;
+  border-right: 2px solid #666;
 }
 
-.search-button {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
+@keyframes typing {
+  0% { width: 0; content: "candles"; }
+  10% { width: 6ch; }
+  20% { width: 0; }
+  30% { width: 0; content: "tarot cards"; }
+  40% { width: 11ch; }
+  60% { width: 11ch; }
+  70% { width: 0; }
+  80% { width: 0; content: "spells"; }
+  90% { width: 6ch; }
+  100% { width: 6ch; }
 }
 
-/* Header Actions */
+/* User/Cart Icons */
 .header-actions {
   display: flex;
   gap: 1.5rem;
@@ -87,7 +101,7 @@ a {
 
 .user-link,
 .cart-link {
-  color: white;
+  color: #333;
   display: flex;
   align-items: center;
   position: relative;
@@ -108,9 +122,9 @@ a {
   justify-content: center;
 }
 
-/* Bottom Navigation Bar */
+/* Navigation Bar (Black Background) */
 .header-nav {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
   padding: 1rem 2rem;
   display: flex;
   justify-content: center;
@@ -267,6 +281,12 @@ a {
   .header-top {
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 0;
   }
 
   .pricing-cards {
