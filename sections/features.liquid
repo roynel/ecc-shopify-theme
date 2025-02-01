@@ -1,0 +1,62 @@
+<div class="features">
+  {% for block in section.blocks %}
+    <div class="feature-card">
+      <div class="feature-icon">{{ block.settings.icon }}</div>
+      <h3>{{ block.settings.title }}</h3>
+      <p>{{ block.settings.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Features Grid",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "AI-Powered Tools"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Harness the power of machine learning for your projects."
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji or SVG)",
+          "default": "✨"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Features Grid",
+    "category": "Custom"
+  }]
+}
+{% endschema %}
+
+<style>
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: #0A0818;
+  }
+  .feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+  }
+</style>
