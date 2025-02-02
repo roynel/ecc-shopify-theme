@@ -21,6 +21,7 @@ function searchBarAnimation() {
         // Move to the next word after deleting
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length; // Cycle through all words
+        charIndex = 0; // Reset charIndex for the next word
       }
   
       // Speed of typing/backspacing

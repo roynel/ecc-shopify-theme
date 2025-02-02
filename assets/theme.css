@@ -15,7 +15,7 @@ a {
 /* ===== Header ===== */
 .header-top {
   background: white;
-  padding: 2rem; /* Increased height for logo */
+  padding: 1rem 2rem; /* Reduced padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,9 +24,9 @@ a {
   border-bottom: 1px solid #eee;
 }
 
-/* Logo Size (93px height like Magick.com) */
+/* Logo Size (100px height) */
 .logo-image {
-  height: 93px;
+  height: 100px;
   width: auto;
 }
 
@@ -72,33 +72,12 @@ a {
   white-space: nowrap; /* Prevent text from wrapping */
 }
 
-/* Animated Text Effect */
 .animated-text {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   width: 0;
   position: relative; /* For cursor positioning */
-}
-
-.animated-text .word {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
-  animation: wordSwitch 12s infinite;
-}
-
-.animated-text .word:nth-child(1) { animation-delay: 0s; }
-.animated-text .word:nth-child(2) { animation-delay: 4s; }
-.animated-text .word:nth-child(3) { animation-delay: 8s; }
-
-@keyframes wordSwitch {
-  0% { opacity: 0; width: 0; }
-  5% { opacity: 1; width: auto; }
-  25% { opacity: 1; width: auto; }
-  30% { opacity: 0; width: 0; }
-  100% { opacity: 0; width: 0; }
 }
 
 /* Blinking Cursor */
