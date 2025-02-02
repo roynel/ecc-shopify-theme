@@ -1,39 +1,51 @@
+// Search Bar Animation
 function searchBarAnimation() {
-    const searchPlaceholder = document.querySelector('.search-placeholder .animated-text');
+    const searchInput = document.querySelector('.search-input');
+    const animatedText = document.querySelector('.animated-text');
+    const placeholder = document.querySelector('.search-placeholder');
     const words = ["candles", "tarot cards", "spells"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
   
+    // Typing animation
     function type() {
       const currentWord = words[wordIndex];
-      const typedText = isDeleting
+      
+      // Update animated text
+      animatedText.textContent = isDeleting 
         ? currentWord.substring(0, charIndex - 1)
         : currentWord.substring(0, charIndex + 1);
   
-      searchPlaceholder.textContent = typedText;
-      searchPlaceholder.style.width = `${typedText.length}ch`; // Ensure text stays in one line
-  
-      if (!isDeleting && typedText === currentWord) {
-        // Pause at the end of typing
+      // Handle word transitions
+      if (!isDeleting && animatedText.textContent === currentWord) {
         setTimeout(() => (isDeleting = true), 2000);
-      } else if (isDeleting && typedText === "") {
-        // Move to the next word after deleting
+      } else if (isDeleting && animatedText.textContent === "") {
         isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length; // Cycle through all words
-        charIndex = 0; // Reset charIndex for the next word
+        wordIndex = (wordIndex + 1) % words.length;
+        charIndex = 0;
+      } else {
+        charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
       }
   
-      // Speed of typing/backspacing
-      const speed = isDeleting ? 100 : 200;
-      charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
-  
-      setTimeout(type, speed);
+      setTimeout(type, isDeleting ? 100 : 200);
     }
   
-    // Start the animation
+    // Hide placeholder when user interacts
+    searchInput.addEventListener('focus', () => {
+      placeholder.style.opacity = '0';
+    });
+  
+    searchInput.addEventListener('blur', () => {
+      if (!searchInput.value) placeholder.style.opacity = '1';
+    });
+  
+    searchInput.addEventListener('input', () => {
+      placeholder.style.opacity = searchInput.value ? '0' : '1';
+    });
+  
+    // Start animation
     type();
   }
   
-  // Initialize the animation when the page loads
   document.addEventListener('DOMContentLoaded', searchBarAnimation);
