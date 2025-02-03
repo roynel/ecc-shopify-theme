@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <nav class="header-nav">
+  <nav class="header-nav" style="background-color: {{ section.settings.nav_bg_color }}; color: {{ section.settings.nav_text_color }};">
     {% for link in linklists.main-menu.links %}
       <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
     {% endfor %}
@@ -55,47 +55,45 @@
 </header>
 
 {% schema %}
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo"
-      },
-      // START: Navigation Settings
-      {
-        "type": "header",
-        "content": "Navigation Settings"
-      },
-      {
-        "type": "color",
-        "id": "nav_bg_color",
-        "label": "Background Color",
-        "default": "#000000"
-      },
-      {
-        "type": "image_picker",
-        "id": "nav_bg_image",
-        "label": "Background Image (Optional)"
-      },
-      {
-        "type": "range",
-        "id": "nav_bg_opacity",
-        "label": "Background Image Opacity",
-        "min": 0,
-        "max": 100,
-        "step": 10,
-        "unit": "%",
-        "default": 100
-      },
-      {
-        "type": "color",
-        "id": "nav_text_color",
-        "label": "Text Color",
-        "default": "#FFFFFF"
-      }
-      // END: Navigation Settings
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Settings"
+    },
+    {
+      "type": "color",
+      "id": "nav_bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "nav_bg_image",
+      "label": "Background Image (Optional)"
+    },
+    {
+      "type": "range",
+      "id": "nav_bg_opacity",
+      "label": "Image Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "nav_text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}
