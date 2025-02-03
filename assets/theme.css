@@ -33,7 +33,7 @@ a {
 /* Search Bar */
 .search-bar {
   position: relative;
-  flex: 0 1 600px;
+  flex: 0 1 700px;
   margin: 0 2rem;
 }
 
@@ -70,9 +70,16 @@ a {
   display: flex;
   gap: 0.25rem;
   white-space: nowrap; /* Prevent line breaks */
+  overflow: visible !important; /* Allow text to overflow */
 }
 
 /* Blinking cursor */
+.animated-text {
+  display: inline-block;
+  min-width: 1px; /* Prevent collapse */
+  overflow: visible !important;
+}
+
 .animated-text::after {
   content: "";
   width: 2px;
