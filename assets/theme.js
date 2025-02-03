@@ -1,50 +1,58 @@
-function searchBarAnimation() {
-    const searchInput = document.querySelector('.search-input');
-    const animatedText = document.querySelector('.animated-text');
-    const placeholder = document.querySelector('.search-placeholder');
-    const words = ["test", "boxes", "tiles", "chokers", "spells"]; // Add words here in order
-    let wordIndex = 0;
-    let charIndex = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    // Configuration
+    const words = ["candles", "spells", "tarot cards"]; // Add words in desired order
+    const animationSpeed = { type: 200, delete: 100, pause: 2000 };
+    const elements = {
+      input: document.querySelector('.search-input'),
+      placeholder: document.querySelector('.search-placeholder'),
+      animatedText: document.querySelector('.animated-text')
+    };
+  
+    let currentWordIndex = 0;
+    let currentCharIndex = 0;
     let isDeleting = false;
   
-    function type() {
-      const currentWord = words[wordIndex];
-      const typedText = isDeleting
-        ? currentWord.substring(0, charIndex - 1)
-        : currentWord.substring(0, charIndex + 1);
-  
-      animatedText.textContent = typedText;
-  
-      // Debugging: Uncomment to see word transitions in console
-      // console.log(`Current word: ${currentWord}, Index: ${wordIndex}`);
-  
-      // Transition to next word after deleting
-      if (isDeleting && typedText === "") {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length; // Strict order
-        charIndex = 0;
-      } 
-  
-      // Start deleting after typing completes
-      if (!isDeleting && typedText === currentWord) {
-        setTimeout(() => (isDeleting = true), 2000);
+    // Core animation logic
+    function animate() {
+      const currentWord = words[currentWordIndex];
+      
+      if (!isDeleting) {
+        // Typing forward
+        elements.animatedText.textContent = currentWord.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+        
+        if (currentCharIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(animate, animationSpeed.pause);
+          return;
+        }
       } else {
-        charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+        // Deleting backward
+        elements.animatedText.textContent = currentWord.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+        
+        if (currentCharIndex === 0) {
+          isDeleting = false;
+          currentWordIndex = (currentWordIndex + 1) % words.length;
+        }
       }
   
-      setTimeout(type, isDeleting ? 100 : 200);
+      setTimeout(animate, isDeleting ? animationSpeed.delete : animationSpeed.type);
     }
   
     // Hide placeholder on interaction
-    searchInput.addEventListener('focus', () => (placeholder.style.opacity = '0'));
-    searchInput.addEventListener('blur', () => {
-      if (!searchInput.value) placeholder.style.opacity = '1';
-    });
-    searchInput.addEventListener('input', () => {
-      placeholder.style.opacity = searchInput.value ? '0' : '1';
+    elements.input.addEventListener('focus', () => {
+      elements.placeholder.style.opacity = '0';
     });
   
-    type(); // Start animation
-  }
+    elements.input.addEventListener('blur', () => {
+      if (!elements.input.value) elements.placeholder.style.opacity = '1';
+    });
   
-  document.addEventListener('DOMContentLoaded', searchBarAnimation);
+    elements.input.addEventListener('input', () => {
+      elements.placeholder.style.opacity = elements.input.value ? '0' : '1';
+    });
+  
+    // Start animation
+    animate();
+  });
