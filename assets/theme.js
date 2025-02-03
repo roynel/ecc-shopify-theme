@@ -1,9 +1,8 @@
-//test2
 function searchBarAnimation() {
     const searchInput = document.querySelector('.search-input');
     const animatedText = document.querySelector('.animated-text');
     const placeholder = document.querySelector('.search-placeholder');
-    const words = ["candles1", "spells1", "tarot cards1"];
+    const words = ["candles2", "spells2", "tarot cards2"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -14,6 +13,7 @@ function searchBarAnimation() {
         ? currentWord.substring(0, charIndex - 1)
         : currentWord.substring(0, charIndex + 1);
   
+      // Update animated text
       animatedText.textContent = typedText;
   
       // Handle word transitions
