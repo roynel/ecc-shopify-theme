@@ -1,9 +1,9 @@
-//test1
+//test2
 function searchBarAnimation() {
     const searchInput = document.querySelector('.search-input');
     const animatedText = document.querySelector('.animated-text');
     const placeholder = document.querySelector('.search-placeholder');
-    const words = ["candles", "spells", "tarot cards"];
+    const words = ["candles1", "spells1", "tarot cards1"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
