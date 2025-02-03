@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Configuration
-    const words = ["candles", "spells", "tarot cards"]; // Add words in desired order
+    const words = ["books", "boxes", "tiles", "chainmail", "spell kits", "bracelets"]; // Add words in desired order
     const animationSpeed = { type: 200, delete: 100, pause: 2000 };
     const elements = {
       input: document.querySelector('.search-input'),
