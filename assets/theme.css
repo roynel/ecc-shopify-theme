@@ -69,20 +69,10 @@ a {
   font-size: 0.95rem;
   display: flex;
   gap: 0.25rem;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-  overflow: visible !important; /* Override any hidden overflow */
+  white-space: nowrap; /* Prevent line breaks */
 }
 
-/* Animated Text */
-.animated-text {
-  position: relative;
-  /* Allow text to expand naturally */
-  display: inline-block;
-  min-width: 1px; /* Prevent collapse */
-  overflow: visible !important;
-}
-
+/* Blinking cursor */
 .animated-text::after {
   content: "";
   width: 2px;
@@ -91,7 +81,7 @@ a {
   display: inline-block;
   animation: blink 1s infinite;
   position: absolute;
-  right: -2px; /* Adjust for space after the word */
+  right: -2px;
   top: 50%;
   transform: translateY(-50%);
 }
