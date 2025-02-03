@@ -2,7 +2,7 @@ function searchBarAnimation() {
     const searchInput = document.querySelector('.search-input');
     const animatedText = document.querySelector('.animated-text');
     const placeholder = document.querySelector('.search-placeholder');
-    const words = ["test1", "test2", "test3", "test4", "test5"]; // Add more words here!
+    const words = ["books", "boxes", "tiles", "spell kits", "bracelets"]; // Add more words here!
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
