@@ -2,34 +2,34 @@ function searchBarAnimation() {
     const searchInput = document.querySelector('.search-input');
     const animatedText = document.querySelector('.animated-text');
     const placeholder = document.querySelector('.search-placeholder');
-    const words = ["candles", "spells", "tarot cards"]; // Fixed order
+    const words = ["candles", "spells", "tarot cards"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
   
     function type() {
       const currentWord = words[wordIndex];
-      
-      // Update animated text
-      animatedText.textContent = isDeleting 
+      const typedText = isDeleting
         ? currentWord.substring(0, charIndex - 1)
         : currentWord.substring(0, charIndex + 1);
   
+      animatedText.textContent = typedText;
+  
       // Handle word transitions
-      if (!isDeleting && animatedText.textContent === currentWord) {
-        setTimeout(() => (isDeleting = true), 2000);
-      } else if (isDeleting && animatedText.textContent === "") {
+      if (!isDeleting && typedText === currentWord) {
+        setTimeout(() => (isDeleting = true), 2000); // Pause after typing
+      } else if (isDeleting && typedText === "") {
         isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length; // Cycle through all words
-        charIndex = 0;
+        wordIndex = (wordIndex + 1) % words.length; // Cycle to next word
+        charIndex = 0; // Reset for the new word
       } else {
         charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
       }
   
-      setTimeout(type, isDeleting ? 100 : 200);
+      setTimeout(type, isDeleting ? 100 : 200); // Speed control
     }
   
-    // Hide placeholder when user interacts
+    // Hide placeholder on interaction
     searchInput.addEventListener('focus', () => {
       placeholder.style.opacity = '0';
     });
@@ -42,8 +42,7 @@ function searchBarAnimation() {
       placeholder.style.opacity = searchInput.value ? '0' : '1';
     });
   
-    // Start animation
-    type();
+    type(); // Start animation
   }
   
   document.addEventListener('DOMContentLoaded', searchBarAnimation);
