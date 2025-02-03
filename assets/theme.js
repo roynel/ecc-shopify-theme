@@ -1,3 +1,4 @@
+//test1
 function searchBarAnimation() {
     const searchInput = document.querySelector('.search-input');
     const animatedText = document.querySelector('.animated-text');
