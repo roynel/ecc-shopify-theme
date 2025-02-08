@@ -12,7 +12,7 @@ a {
   text-decoration: none;
 }
 
-/* ===== Desktop Header ===== */
+/* ===== Header ===== */
 .header-top {
   background: white;
   padding: 1rem 2rem;
@@ -21,100 +21,43 @@ a {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
+  border-bottom: 1px solid #eee;
 }
 
 .logo-image {
-  height: 120px;
+  height: 120px; /* Updated to 120px */
   width: auto;
 }
 
+/* Search Bar */
 .search-bar {
   position: relative;
-  flex: 0 1 700px;
+  flex: 0 1 700px; /* Wider to fit longer words */
   margin: 0 2rem;
 }
 
-/* ===== Mobile Header ===== */
-@media (max-width: 768px) {
-  .header-top,
-  .header-nav {
-    display: none !important;
-  }
-
-  .mobile-header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: white;
-    border-bottom: none;
-  }
-
-  .logo-image {
-    height: 100px !important;
-    width: auto !important;
-  }
-
-  .mobile-search-bar {
-    padding: 0 15px 12px;
-    background: white;
-    position: relative;
-  }
-
-  .mobile-search-bar form {
-    position: relative;
-  }
-
-  .mobile-search-bar .search-input {
-    width: 100%;
-    padding: 12px 45px 12px 15px;
-    border: 1px solid #eee;
-    border-radius: 25px;
-    font-size: 16px;
-  }
-
-  .mobile-search-bar .search-button {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .mobile-menu {
-    position: fixed;
-    top: 124px; /* Height of mobile header */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-    z-index: 999;
-    overflow-y: auto;
-    padding: 1rem;
-  }
-
-  .mobile-menu.active {
-    transform: translateY(0);
-  }
-
-  .mobile-menu .nav-link {
-    display: block;
-    padding: 1rem;
-    color: #333;
-    border-bottom: 1px solid #eee;
-  }
-
-  .hamburger-menu.active .hamburger-icon {
-    display: none !important;
-  }
-
-  .hamburger-menu.active .close-icon {
-    display: block !important;
-  }
+.search-button {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  z-index: 2;
+  color: #666;
+  cursor: pointer;
 }
 
-/* ===== Shared Styles ===== */
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1.5rem 0.75rem 3rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
 .search-placeholder {
   position: absolute;
   left: 3rem;
@@ -125,10 +68,13 @@ a {
   font-size: 0.95rem;
   display: flex;
   gap: 0.25rem;
-  white-space: nowrap;
+  white-space: nowrap; /* Prevent line breaks */
 }
 
+/* Blinking cursor */
 .animated-text {
+  display: inline-block;
+  min-width: 1px; /* Prevent collapse */
   position: relative;
 }
 
@@ -137,6 +83,7 @@ a {
   width: 2px;
   height: 1em;
   background: #666;
+  display: inline-block;
   animation: blink 1s infinite;
   position: absolute;
   right: -2px;
@@ -149,33 +96,21 @@ a {
   50% { opacity: 0; }
 }
 
-/* ===== Navigation ===== */
-.header-nav {
-  padding: 1rem 2rem;
+/* User/Cart Icons */
+.header-actions {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.nav-link {
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s;
+.user-link,
+.cart-link {
+  color: #333;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.nav-link:hover {
-  opacity: 0.7;
-}
-
-/* ===== Mobile Menu Toggle ===== */
-.hamburger-menu {
-  background: none;
-  border: none;
-  padding: 0;
-  z-index: 1000;
-}
-
-/* ===== Cart Count ===== */
 .cart-count {
   position: absolute;
   top: -8px;
@@ -189,6 +124,26 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ===== Navigation ===== */
+.header-nav {
+  position: relative;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
 }
 
 /* ===== Hero Section ===== */
