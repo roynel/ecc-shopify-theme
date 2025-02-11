@@ -335,8 +335,6 @@ a {
     padding: 0.75rem 0;
     border: 1px solid #ddd;
     border-radius: 999px;
-    position: relative;
-    z-index: 1; /* Ensure input stays clickable */
   }
   .mobile-search-bar .search-button {
     position: absolute;
@@ -345,23 +343,7 @@ a {
     transform: translateY(-50%);
     background: none;
     border: none;
-    padding: 8px; /* Smaller click area */
-    margin: 0;
     z-index: 2;
-  }
-
-  .mobile-search-bar .search-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* Search Placeholder Positioning */
-  .mobile-search-bar .search-placeholder {
-    left: 1rem; /* Match input padding */
-    right: 3rem; /* Account for button space */
-    top: 40%;
-    transform: translateY(-50%);
-    pointer-events: none; /* Allow clicks through to input */
   }
 
   /* Mobile menu dropdown */
