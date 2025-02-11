@@ -21,7 +21,7 @@ a {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  border-bottom: 1px solid #eee;
+  border-bottom: none;
 }
 
 .logo-image {
@@ -298,6 +298,7 @@ a {
     background: white;
     position: relative;
     z-index: 1000;
+    border-bottom: none !important;
   }
 
   .hamburger-menu {
@@ -309,7 +310,7 @@ a {
 
   /* Logo sizing */
   .logo-image {
-    height: 60px !important; /* Smaller logo for mobile */
+    height: 100px !important;
   }
 
   /* Mobile icons */
@@ -321,28 +322,36 @@ a {
 
   /* Mobile search bar */
   .mobile-search-bar {
+    position: relative;
     padding: 0 1rem 1rem;
     background: white;
   }
   .mobile-search-bar .search-input {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem 3rem;
     border: 1px solid #ddd;
     border-radius: 999px;
+  }
+  .mobile-search-bar .search-button {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    z-index: 2;
   }
 
   /* Mobile menu dropdown */
   .mobile-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: fixed; /* Changed from absolute */
+    width: 100%;
     background: white;
+    top: 82px; /* Adjust based on header height */
     max-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
     transition: max-height 0.3s ease-out;
     z-index: 999;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
 
   .mobile-menu.active {

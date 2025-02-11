@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Configuration
   const words = ["books", "boxes", "tiles", "chainmail", "spell kits", "bracelets"]; // Add words in desired order
   const animationSpeed = { type: 200, delete: 100, pause: 2000 };
+  const animatedTextElements = document.querySelectorAll('.animated-text');
   const elements = {
     input: document.querySelector('.search-input'),
     placeholder: document.querySelector('.search-placeholder'),
@@ -15,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Core animation logic
   function animate() {
     const currentWord = words[currentWordIndex];
+    animatedTextElements.forEach(element => {
+      element.textContent = currentWord.substring(0, currentCharIndex + (isDeleting ? -1 : 1));
+    });
     
     if (!isDeleting) {
       // Typing forward
