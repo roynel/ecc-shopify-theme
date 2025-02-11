@@ -337,9 +337,11 @@ a {
     border-radius: 999px;
   }
   .mobile-search-bar .search-button {
+    width: 40px;
+    height: 30px;
     position: absolute;
-    right: 1.5rem;
-    top: 50%;
+    left: 85%;
+    top: calc(100% - 35px);
     transform: translateY(-50%);
     background: none;
     border: none;
