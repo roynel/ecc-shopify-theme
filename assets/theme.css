@@ -13,11 +13,6 @@ a {
 }
 
 /* ===== Header ===== */
-.header {
-  position: relative;
-  overflow: hidden;
-}
-
 .header-top {
   background: white;
   padding: 1rem 2rem;
@@ -29,48 +24,9 @@ a {
   border-bottom: none;
 }
 
-.mobile-header-top,
-.header-top {
-  position: relative;
-  z-index: 2;
-  background: none !important;
-}
-
-.logo {
-  background: white;
-  padding: 0 20px;
-  margin-left: -20px; /* Compensate for padding */
-}
-
 .logo-image {
   height: 120px; /* Updated to 120px */
   width: auto;
-}
-
-.header-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-/* White Gradient for Logo Area */
-.logo-gradient-overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 300px; /* Adjust based on logo size */
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,1) 0%,
-    rgba(255,255,255,1) 70%,
-    rgba(255,255,255,0) 100%
-  );
-  z-index: 1;
-  pointer-events: none;
 }
 
 /* Search Bar */
@@ -508,21 +464,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  .logo-gradient-overlay {
-    width: 200px;
-    background: linear-gradient(
-      90deg,
-      rgba(255,255,255,1) 0%,
-      rgba(255,255,255,1) 80%,
-      rgba(255,255,255,0) 100%
-    );
-  }
-  
-  .logo {
-    padding: 0 15px;
-    margin-left: -15px;
-  }
-  
   .search-bar {
     width: 100%;
     margin: 0;

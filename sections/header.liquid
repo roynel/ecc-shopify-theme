@@ -1,19 +1,4 @@
 <header class="header">
-
-  <!-- Background Layer -->
-  <div class="header-background" style="
-    {% if section.settings.header_bg_image %}
-      background-image: url({{ section.settings.header_bg_image | image_url }});
-    {% endif %}
-    background-color: {{ section.settings.header_bg_color }};
-    background-size: {{ section.settings.header_bg_size }};
-    background-repeat: {{ section.settings.header_bg_repeat }};
-    opacity: {{ section.settings.header_bg_opacity | divided_by: 100.0 }};
-  "></div>
-  
-  <!-- Logo Area Gradient Overlay -->
-  <div class="logo-gradient-overlay"></div>
-
   <!-- Mobile Hamburger and Top Bar -->
   <div class="mobile-header-top">
     <button class="hamburger-menu">
@@ -157,54 +142,6 @@
       "type": "image_picker",
       "id": "logo",
       "label": "Logo"
-    },
-    {
-      "type": "header",
-      "content": "Header Background"
-    },
-    {
-      "type": "image_picker",
-      "id": "header_bg_image",
-      "label": "Background Image"
-    },
-    {
-      "type": "color",
-      "id": "header_bg_color",
-      "label": "Background Color",
-      "default": "rgba(255,255,255,0)"
-    },
-    {
-      "type": "range",
-      "id": "header_bg_opacity",
-      "label": "Background Opacity",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "default": 100
-    },
-    {
-      "type": "select",
-      "id": "header_bg_size",
-      "label": "Background Size",
-      "options": [
-        {"value": "cover", "label": "Cover"},
-        {"value": "contain", "label": "Contain"},
-        {"value": "auto", "label": "Auto"}
-      ],
-      "default": "cover"
-    },
-    {
-      "type": "select",
-      "id": "header_bg_repeat",
-      "label": "Background Repeat",
-      "options": [
-        {"value": "no-repeat", "label": "No Repeat"},
-        {"value": "repeat", "label": "Repeat"},
-        {"value": "repeat-x", "label": "Repeat X"},
-        {"value": "repeat-y", "label": "Repeat Y"}
-      ],
-      "default": "no-repeat"
     },
     {
       "type": "header",
