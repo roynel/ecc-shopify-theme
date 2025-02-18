@@ -1,8 +1,48 @@
-<div class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
-    <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
-    <a href="{{ section.settings.cta_url }}" class="button">{{ section.settings.cta_text }}</a>
+{% comment %} Replace existing hero.liquid content {% endcomment %}
+<div id="shopify-section-hero" class="hero-section" style="
+  {% if section.settings.background_image != blank %}
+    background-image: url({{ section.settings.background_image | image_url }});
+  {% endif %}
+  background-size: {{ section.settings.background_size }};
+  background-repeat: {{ section.settings.background_repeat }};
+  background-color: {{ section.settings.background_color }};
+">
+  <div class="hero-container">
+    <div class="hero-column left-column">
+      {% if section.settings.left_column_image != blank %}
+        <img 
+          src="{{ section.settings.left_column_image | image_url: width: 800 }}" 
+          alt="{{ section.settings.left_column_image.alt | escape }}"
+          class="hero-image"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+    
+    <div class="hero-column right-column">
+      <div class="hero-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="hero-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        
+        {% if section.settings.text != blank %}
+          <div class="hero-text">{{ section.settings.text }}</div>
+        {% endif %}
+        
+        {% if section.settings.button_text != blank %}
+          <a 
+            href="{{ section.settings.button_link }}" 
+            class="hero-button"
+            style="
+              background-color: {{ section.settings.button_background_color }};
+              color: {{ section.settings.button_text_color }};
+            "
+          >
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -11,32 +51,101 @@
   "name": "Hero Section",
   "settings": [
     {
-      "type": "text",
-      "id": "hero_title",
-      "label": "Title",
-      "default": "Unleash Your Creativity"
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#0A0818"
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background Size",
+      "options": [
+        {"value": "cover", "label": "Cover"},
+        {"value": "contain", "label": "Contain"},
+        {"value": "auto", "label": "Auto"}
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "background_repeat",
+      "label": "Background Repeat",
+      "options": [
+        {"value": "no-repeat", "label": "No Repeat"},
+        {"value": "repeat", "label": "Repeat"},
+        {"value": "repeat-x", "label": "Repeat X"},
+        {"value": "repeat-y", "label": "Repeat Y"}
+      ],
+      "default": "no-repeat"
+    },
+    {
+      "type": "header",
+      "content": "Left Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_column_image",
+      "label": "Left Column Image"
+    },
+    {
+      "type": "header",
+      "content": "Right Column Content"
     },
     {
       "type": "text",
-      "id": "hero_subtitle",
-      "label": "Subtitle",
-      "default": "Transform your workflow with AI-powered tools."
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Content",
+      "default": "<p>Add your compelling hero section text here</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
     },
     {
       "type": "text",
-      "id": "cta_text",
+      "id": "button_text",
       "label": "Button Text",
-      "default": "Get Started"
+      "default": "Shop Now"
     },
     {
       "type": "url",
-      "id": "cta_url",
+      "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#9B8AFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
     }
   ],
-  "presets": [{
-    "name": "Hero Section",
-    "category": "Custom"
-  }]
+  "presets": [
+    {
+      "name": "Custom Hero Section",
+      "category": "Custom Sections"
+    }
+  ]
 }
 {% endschema %}
