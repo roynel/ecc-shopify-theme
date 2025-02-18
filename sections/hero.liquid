@@ -1,12 +1,14 @@
-{% comment %} Replace existing hero.liquid content {% endcomment %}
-<div class="hero-section" style="
-  {% if section.settings.background_image != blank %}
-    background-image: url({{ section.settings.background_image | image_url }});
-  {% endif %}
-  background-size: {{ section.settings.background_size }};
-  background-repeat: {{ section.settings.background_repeat }};
-  background-color: {{ section.settings.background_color }};
-">
+<div class="hero-section">
+  <div class="hero-background" style="
+    {% if section.settings.background_image != blank %}
+      background-image: url({{ section.settings.background_image | image_url }});
+    {% endif %}
+    background-size: {{ section.settings.background_size }};
+    background-repeat: {{ section.settings.background_repeat }};
+    background-color: {{ section.settings.background_color }};
+    opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
+  "></div>
+  
   <div class="hero-container">
     <div class="hero-column left-column">
       {% if section.settings.left_column_image != blank %}
@@ -87,6 +89,16 @@
         {"value": "repeat-y", "label": "Repeat Y"}
       ],
       "default": "no-repeat"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "label": "Background Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
     },
     {
       "type": "header",
