@@ -1,12 +1,12 @@
 <div class="cc-product-card-grid">
-  <!-- Background Section -->
-  <div class="section-background" style="
+  <!-- Background Layers -->
+  <div class="section-background-color" style="background-color: {{ section.settings.background_color }};"></div>
+  <div class="section-background-image" style="
     {% if section.settings.background_image != blank %}
       background-image: url({{ section.settings.background_image | image_url }});
     {% endif %}
     background-size: {{ section.settings.background_size }};
     background-repeat: {{ section.settings.background_repeat }};
-    background-color: {{ section.settings.background_color }};
     opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
   "></div>
   

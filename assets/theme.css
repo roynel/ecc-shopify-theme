@@ -276,6 +276,25 @@ a {
   z-index: -1;
 }
 
+.section-background-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Behind the image layer */
+}
+
+.section-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Between color and content */
+  background-color: transparent !important;
+}
+
 .feature-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
