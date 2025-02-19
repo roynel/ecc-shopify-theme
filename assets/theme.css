@@ -264,7 +264,7 @@ a {
 .cc-product-card-grid {
   position: relative;
   isolation: isolate;
-  padding: 4rem 0;
+  padding: 4rem 2rem;
 }
 
 .section-background {
