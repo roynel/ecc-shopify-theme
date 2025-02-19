@@ -54,15 +54,23 @@
           "background_repeat": "repeat"
         }
       },
-      "pricing": {
-        "type": "pricing",
-        "settings": {
-          "title": "Choose Your Plan"
-        }
-      },
       "footer": {
         "type": "footer",
         "settings": {}
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "heading": "Subscribe to Enchanted Newsletter",
+          "text": "<p>Unlock exclusive offers, magical tips, and first looks at new arrivals by signing up for our email blasts! Join our mystical community to stay connected with the latest in witchcraft supplies, spell kits, and enchanting products.</p>",
+          "placeholder": "Your email",
+          "button_text": "Subscribe",
+          "background_image": "shopify://shop_images/witch-table.jpg",
+          "background_color": "#1A1730",
+          "background_opacity": 100,
+          "background_size": "cover",
+          "background_repeat": "no-repeat"
+        }
       }
     },
     "content_for_index": []
