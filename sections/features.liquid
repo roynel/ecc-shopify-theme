@@ -136,22 +136,23 @@
         {"value": "cover", "label": "Cover"},
         {"value": "contain", "label": "Contain"},
         {"value": "auto", "label": "Auto"},
-        {"value": "custom", "label": "Custom Size"}
+        {"value": "custom", "label": "Custom Scale"}
       ],
       "default": "cover"
     },
     {
       "type": "range",
       "id": "background_custom_size",
-      "label": "Custom Background Scale",
+      "label": "Custom Scale Percentage",
       "min": 10,
       "max": 200,
       "step": 5,
       "unit": "%",
       "default": 100,
-      "info": "Scales image while maintaining proportions",
-      "conditions": {
-        "background_size": "custom"
+      "info": "Scales image proportionally",
+      "condition": {
+        "field": "background_size",
+        "equals": "custom"
       }
     },
     {
