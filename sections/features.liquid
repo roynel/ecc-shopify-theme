@@ -1,15 +1,11 @@
 <div class="cc-product-card-grid">
-  <!-- Background Layer -->
+  <!-- Background Layers -->
   <div class="section-background-color" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="section-background-image" style="
     {% if section.settings.background_image != blank %}
       background-image: url({{ section.settings.background_image | image_url }});
     {% endif %}
-    {% if section.settings.background_size == 'custom' %}
-      background-size: {{ section.settings.background_custom_size }}% auto;
-    {% else %}
-      background-size: {{ section.settings.background_size }};
-    {% endif %}
+    background-size: {{ section.settings.background_size }};
     background-repeat: {{ section.settings.background_repeat }};
     opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
   "></div>
@@ -135,25 +131,9 @@
       "options": [
         {"value": "cover", "label": "Cover"},
         {"value": "contain", "label": "Contain"},
-        {"value": "auto", "label": "Auto"},
-        {"value": "custom", "label": "Custom Scale"}
+        {"value": "auto", "label": "Auto"}
       ],
       "default": "cover"
-    },
-    {
-      "type": "range",
-      "id": "background_custom_size",
-      "label": "Custom Scale Percentage",
-      "min": 10,
-      "max": 200,
-      "step": 5,
-      "unit": "%",
-      "default": 100,
-      "info": "Scales image proportionally",
-      "condition": {
-        "field": "background_size",
-        "equals": "custom"
-      }
     },
     {
       "type": "select",
