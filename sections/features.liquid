@@ -5,7 +5,11 @@
     {% if section.settings.background_image != blank %}
       background-image: url({{ section.settings.background_image | image_url }});
     {% endif %}
-    background-size: {{ section.settings.background_size }};
+    {% if section.settings.background_size == 'custom' %}
+      background-size: {{ section.settings.background_custom_size }}% auto;
+    {% else %}
+      background-size: {{ section.settings.background_size }};
+    {% endif %}
     background-repeat: {{ section.settings.background_repeat }};
     opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
   "></div>
@@ -131,9 +135,24 @@
       "options": [
         {"value": "cover", "label": "Cover"},
         {"value": "contain", "label": "Contain"},
-        {"value": "auto", "label": "Auto"}
+        {"value": "auto", "label": "Auto"},
+        {"value": "custom", "label": "Custom Size"}
       ],
       "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "background_custom_size",
+      "label": "Custom Background Scale",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "info": "Scales image while maintaining proportions",
+      "conditions": {
+        "background_size": "custom"
+      }
     },
     {
       "type": "select",
