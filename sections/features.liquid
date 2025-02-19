@@ -21,15 +21,25 @@
       {% if collection %}
         <div class="product-scroll-grid">
           {% for product in collection.products limit: 8 %}
+            {% comment %} In sections/features.liquid {% endcomment %}
             <div class="product-card">
               <a href="{{ product.url }}">
                 <img src="{{ product.featured_image | image_url: width: 400 }}"
-                     alt="{{ product.title }}"
-                     class="product-image"
-                     loading="lazy">
+                    alt="{{ product.title }}"
+                    class="product-image"
+                    loading="lazy">
               </a>
               <div class="product-info">
                 <h3 class="product-title">{{ product.title }}</h3>
+                
+                {% comment %} Added description {% endcomment %}
+                {% if product.description != blank %}
+                  <div class="product-description">
+                    {{ product.description | truncatewords: 15 }}
+                    <a href="{{ product.url }}" class="read-more">Read more</a>
+                  </div>
+                {% endif %}
+                
                 <div class="product-price">
                   {{ product.price | money }}
                   {% if product.compare_at_price > product.price %}
