@@ -46,7 +46,12 @@
           "text": "<p>Explore our curated collection of magical items</p>",
           "button_text": "View All",
           "button_link": "",
-          "collection": "opening-collection"
+          "collection": "opening-collection",
+          "background_image": "shopify://shop_images/witchy-bg-repeat.jpg",
+          "background_color": "#ffffff",
+          "background_opacity": 5,
+          "background_size": "contain",
+          "background_repeat": "repeat"
         }
       },
       "pricing": {
