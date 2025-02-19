@@ -262,8 +262,18 @@ a {
 
 /* ===== Features Grid ===== */
 .cc-product-card-grid {
-  padding: 4rem 2rem;
-  background: #f9f9f9;
+  position: relative;
+  isolation: isolate;
+  padding: 4rem 0;
+}
+
+.section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .feature-container {
@@ -404,15 +414,18 @@ a {
   }
   
   .product-scroll-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr !important; /* Force single column */
+    gap: 1rem;
   }
   
   .product-image {
-    height: 200px;
+    height: 250px !important;
   }
 
   .product-card {
-    width: 100%;
+    width: 100% !important;
+    max-width: 350px;
+    margin: 0 auto;
   }
 }
 
