@@ -24,7 +24,12 @@
     <div class="hero-column right-column">
       <div class="hero-content">
         {% if section.settings.heading != blank %}
-          <h2 class="hero-heading">{{ section.settings.heading }}</h2>
+          <h2 class="hero-heading" style="
+            font-family: {{ section.settings.heading_font | replace: ' ', '+' }}, sans-serif;
+            font-size: {{ section.settings.heading_font_size }}px;
+          ">
+            {{ section.settings.heading }}
+          </h2>
         {% endif %}
         
         {% if section.settings.text != blank %}
@@ -118,6 +123,34 @@
       "id": "heading",
       "label": "Heading",
       "default": "Welcome to Our Store"
+    },
+    {
+      "type": "header",
+      "content": "Heading Styles"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "options": [
+        {"value": "Roboto", "label": "Roboto"},
+        {"value": "Open Sans", "label": "Open Sans"},
+        {"value": "Lato", "label": "Lato"},
+        {"value": "Montserrat", "label": "Montserrat"},
+        {"value": "Poppins", "label": "Poppins"},
+        {"value": "system-ui", "label": "System Default"}
+      ],
+      "default": "system-ui"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 40
     },
     {
       "type": "richtext",
