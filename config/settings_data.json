@@ -49,7 +49,7 @@
           "collection": "opening-collection",
           "background_image": "shopify://shop_images/witchy-bg-repeat.jpg",
           "background_color": "#ffffff",
-          "background_opacity": 5,
+          "background_opacity": 10,
           "background_size": "contain",
           "background_repeat": "repeat"
         }
