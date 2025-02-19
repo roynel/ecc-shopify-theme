@@ -30,6 +30,8 @@
           "background_opacity": 15,
           "left_column_image": "shopify://shop_images/hero-image2.jpg",
           "heading": "35% OFF SALE!",
+          "heading_font": "system-ui",
+          "heading_font_size": 40,
           "text": "<p><strong>Last chance to use code 35off at checkout!</strong></p><p>Don’t miss out on our exclusive sale! Treat yourself to an enchanting selection of mystical delights, including witchy books, captivating tarot and oracle decks, spell kits, magical spell candles, and a variety of occult and Celtic statues. We've built the savings right into our prices, so now is the perfect time to add a touch of magick to your life. Explore our collection and find the perfect addition to your mystical journey today!</p><p><span style=\"text-decoration:underline\"><strong>Enter code 35off at checkout!</strong></span></p>",
           "button_text": "Shop Sales",
           "button_link": "#",
@@ -39,7 +41,13 @@
       },
       "features": {
         "type": "features",
-        "settings": {}
+        "settings": {
+          "heading": "Featured Collection",
+          "text": "<p>Explore our curated collection of magical items</p>",
+          "button_text": "View All",
+          "button_link": "",
+          "collection": "opening-collection"
+        }
       },
       "pricing": {
         "type": "pricing",
