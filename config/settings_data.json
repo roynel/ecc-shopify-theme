@@ -108,6 +108,53 @@
           "background_repeat": "repeat",
           "text_color": "#2a2a2a"
         }
+      },
+      "three-columns": {
+        "type": "three-columns",
+        "blocks": {
+          "column_QNAnah": {
+            "type": "column",
+            "settings": {
+              "title": "Free Shipping for Subscribers",
+              "content": "<p>Add more items to your cart to grab this discount! This discount runs until March 2025. All orders in the United States qualify for this discount. Shipping speed will be determined by your location and what is ordered.</p>",
+              "box_background": "#e4c4ff",
+              "title_color": "#050029",
+              "text_color": "#555555"
+            }
+          },
+          "column_fURCjf": {
+            "type": "column",
+            "settings": {
+              "title": "Free Crystal with Every Order",
+              "content": "<p>Orders which contain no other free gift will contain a free tumbled crystal in the packaging. No discount code needed. Crystal is not put in special packaging - please check all contents of your order upon arrival.</p>",
+              "box_background": "#e4c4ff",
+              "title_color": "#050029",
+              "text_color": "#555555"
+            }
+          },
+          "column_ExCwPb": {
+            "type": "column",
+            "settings": {
+              "title": "Free Sage, Cauldron & More",
+              "content": "<p>We offer free gifts through discounts on the site. If a Spin-the-Wheel pops up, spin the wheel to win a prize! Codes will be given with what prize was given. Redeem the code at checkout. Only one code can be redeemed.</p>",
+              "box_background": "#e4c4ff",
+              "title_color": "#050029",
+              "text_color": "#555555"
+            }
+          }
+        },
+        "block_order": [
+          "column_QNAnah",
+          "column_fURCjf",
+          "column_ExCwPb"
+        ],
+        "settings": {
+          "background_image": "shopify://shop_images/witchy-bg-repeat.jpg",
+          "background_color": "#FFFFFF",
+          "background_opacity": 10,
+          "background_size": "auto",
+          "background_repeat": "repeat"
+        }
       }
     },
     "content_for_index": []
