@@ -1,23 +1,30 @@
 {% comment %} sections/collections-list.liquid {% endcomment %}
 <div class="cc-collection-list">
-  <div class="collection-list-container">
-    {% if section.settings.title != blank %}
-      <h2 class="section-title">{{ section.settings.title }}</h2>
+  <div class="collection-background-color" style="background-color: {{ section.settings.background_color }};"></div>
+  <div class="collection-background-image" style="
+    {% if section.settings.background_image != blank %}
+      background-image: url({{ section.settings.background_image | image_url }});
     {% endif %}
-    
+    background-size: {{ section.settings.background_size }};
+    background-repeat: {{ section.settings.background_repeat }};
+    opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
+  "></div>
+  
+  <div class="collection-list-container">
     <div class="collection-grid">
-      {% for collection in collections %}
+      {% for collection in section.settings.selected_collections %}
         <a href="{{ collection.url }}" class="collection-card">
           <div class="collection-image">
             {% if collection.featured_image %}
               <img src="{{ collection.featured_image | image_url: width: 400 }}"
                    alt="{{ collection.title }}"
-                   loading="lazy">
+                   loading="lazy"
+                   class="collection-img">
             {% else %}
               <div class="placeholder-image">{{ collection.title | slice: 0 }}</div>
             {% endif %}
           </div>
-          <h3 class="collection-title">{{ collection.title }}</h3>
+          <h3 class="collection-title" style="color: {{ section.settings.title_color }};">{{ collection.title }}</h3>
         </a>
       {% endfor %}
     </div>
@@ -29,10 +36,10 @@
   "name": "Collection List",
   "settings": [
     {
-      "type": "text",
-      "id": "title",
-      "label": "Section Title",
-      "default": "Shop Collections"
+      "type": "collection_list",
+      "id": "selected_collections",
+      "label": "Select Collections",
+      "limit": 12
     },
     {
       "type": "color",
@@ -52,18 +59,41 @@
     {
       "type": "color",
       "id": "background_color",
-      "default": "#FFFFFF",
-      "label": "Background Color"
+      "label": "Background Color",
+      "default": "#FFFFFF"
     },
     {
       "type": "range",
       "id": "background_opacity",
-      "label": "Background Opacity",
+      "label": "Image Opacity",
       "min": 0,
       "max": 100,
       "step": 5,
       "unit": "%",
       "default": 100
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background Size",
+      "options": [
+        {"value": "cover", "label": "Cover"},
+        {"value": "contain", "label": "Contain"},
+        {"value": "auto", "label": "Auto"}
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "background_repeat",
+      "label": "Background Repeat",
+      "options": [
+        {"value": "no-repeat", "label": "No Repeat"},
+        {"value": "repeat", "label": "Repeat"},
+        {"value": "repeat-x", "label": "Repeat X"},
+        {"value": "repeat-y", "label": "Repeat Y"}
+      ],
+      "default": "no-repeat"
     }
   ]
 }
