@@ -96,13 +96,17 @@
       "horizontal-products": {
         "type": "horizontal-products",
         "settings": {
-          "heading": "Featured Products",
-          "text": "<p>Explore our curated selection of magical items</p>",
+          "heading": "Discounted Products",
+          "text": "<p>Explore our curated selection of magical items discounted at a better price today than it was yesterday. Get them now!</p>",
           "button_text": "View All",
           "button_link": "",
           "collection": "opening-collection",
-          "background_color": "#FFFFFF",
-          "text_color": "#2A2A2A"
+          "background_image": "shopify://shop_images/witchy-bg-repeat-3.jpg",
+          "background_color": "#232323",
+          "background_opacity": 20,
+          "background_size": "auto",
+          "background_repeat": "repeat",
+          "text_color": "#2a2a2a"
         }
       }
     },
