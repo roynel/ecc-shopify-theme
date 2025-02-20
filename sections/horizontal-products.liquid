@@ -1,4 +1,16 @@
+{% comment %} sections/horizontal-products.liquid {% endcomment %}
 <div class="cc-horizontal-products">
+  <!-- Background Layers -->
+  <div class="horizontal-background-color" style="background-color: {{ section.settings.background_color }};"></div>
+  <div class="horizontal-background-image" style="
+    {% if section.settings.background_image != blank %}
+      background-image: url({{ section.settings.background_image | image_url }});
+    {% endif %}
+    background-size: {{ section.settings.background_size }};
+    background-repeat: {{ section.settings.background_repeat }};
+    opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
+  "></div>
+  
   <div class="horizontal-products-container">
     <div class="content-column">
       {% if section.settings.heading != blank %}
@@ -30,6 +42,9 @@
             <div class="product-info">
               <h3 class="product-title">{{ product.title }}</h3>
               <div class="product-price">{{ product.price | money }}</div>
+              {% if product.compare_at_price > product.price %}
+                <div class="compare-price">{{ product.compare_at_price | money }}</div>
+              {% endif %}
             </div>
           </div>
         {% endfor %}
@@ -72,13 +87,55 @@
     },
     {
       "type": "header",
-      "content": "Design Settings"
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
     },
     {
       "type": "color",
       "id": "background_color",
       "label": "Background Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "label": "Image Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background Size",
+      "options": [
+        {"value": "cover", "label": "Cover"},
+        {"value": "contain", "label": "Contain"},
+        {"value": "auto", "label": "Auto"}
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "background_repeat",
+      "label": "Background Repeat",
+      "options": [
+        {"value": "no-repeat", "label": "No Repeat"},
+        {"value": "repeat", "label": "Repeat"},
+        {"value": "repeat-x", "label": "Repeat X"},
+        {"value": "repeat-y", "label": "Repeat Y"}
+      ],
+      "default": "no-repeat"
+    },
+    {
+      "type": "header",
+      "content": "Design Settings"
     },
     {
       "type": "color",
