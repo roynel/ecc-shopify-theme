@@ -42,8 +42,8 @@
       "features": {
         "type": "features",
         "settings": {
-          "heading": "Featured Collection",
-          "text": "<p>Explore our curated collection of magical items</p>",
+          "heading": "Magical Collection",
+          "text": "<p>Unlock exclusive offers, magical tips, and first looks at new arrivals by signing up for our email blasts! Join our mystical community to stay connected with the latest in witchcraft supplies, spell kits, and enchanting products.</p>",
           "button_text": "View All",
           "button_link": "",
           "collection": "opening-collection",
