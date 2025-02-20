@@ -150,10 +150,60 @@
         ],
         "settings": {
           "background_image": "shopify://shop_images/witchy-bg-repeat.jpg",
-          "background_color": "#FFFFFF",
+          "background_color": "#ffffff",
           "background_opacity": 10,
           "background_size": "auto",
           "background_repeat": "repeat"
+        }
+      },
+      "icon-columns": {
+        "type": "icon-columns",
+        "blocks": {
+          "column_38jmRJ": {
+            "type": "column",
+            "settings": {
+              "title": "Column Title",
+              "text": "<p>Column text content</p>",
+              "text_color": "#2A2A2A"
+            }
+          },
+          "column_CQ8YCt": {
+            "type": "column",
+            "settings": {
+              "title": "Column Title",
+              "text": "<p>Column text content</p>",
+              "text_color": "#2A2A2A"
+            }
+          },
+          "column_zh4bzF": {
+            "type": "column",
+            "settings": {
+              "title": "Column Title",
+              "text": "<p>Column text content</p>",
+              "text_color": "#2A2A2A"
+            }
+          },
+          "column_afzhw8": {
+            "type": "column",
+            "settings": {
+              "title": "Column Title",
+              "text": "<p>Column text content</p>",
+              "text_color": "#2A2A2A"
+            }
+          }
+        },
+        "block_order": [
+          "column_38jmRJ",
+          "column_CQ8YCt",
+          "column_zh4bzF",
+          "column_afzhw8"
+        ],
+        "settings": {
+          "background_color": "rgba(0,0,0,0)",
+          "background_gradient": "linear-gradient(127deg, rgba(254, 217, 81, 1) 11%, rgba(255, 70, 199, 1) 81%)",
+          "background_opacity": 100,
+          "background_size": "cover",
+          "background_repeat": "no-repeat"
         }
       }
     },
