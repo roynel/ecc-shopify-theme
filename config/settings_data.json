@@ -65,10 +65,28 @@
           "text": "<p>Unlock exclusive offers, magical tips, and first looks at new arrivals by signing up for our email blasts! Join our mystical community to stay connected with the latest in witchcraft supplies, spell kits, and enchanting products.</p>",
           "placeholder": "Your email",
           "button_text": "Subscribe",
-          "box_background_color": "rgba(255,255,255,0.1)",
+          "box_background_color": "#ffffff",
           "text_color": "#ffffff",
           "background_image": "shopify://shop_images/witch-table.jpg",
           "background_color": "#1a1730",
+          "background_opacity": 100,
+          "background_size": "cover",
+          "background_repeat": "no-repeat"
+        }
+      },
+      "collections-list": {
+        "type": "collections-list",
+        "settings": {
+          "selected_collections": [
+            "herb-packs",
+            "incense-sticks",
+            "leather-journals",
+            "pillar-candles",
+            "smudge-sticks",
+            "tumbled-stones"
+          ],
+          "title_color": "#ffffff",
+          "background_color": "#3e3838",
           "background_opacity": 100,
           "background_size": "cover",
           "background_repeat": "no-repeat"
