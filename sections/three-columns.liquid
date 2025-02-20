@@ -1,0 +1,135 @@
+<div class="cc-three-columns">
+  <div class="three-columns-background-color" style="background-color: {{ section.settings.background_color }};"></div>
+  <div class="three-columns-background-image" style="
+    {% if section.settings.background_image != blank %}
+      background-image: url({{ section.settings.background_image | image_url }});
+    {% endif %}
+    background-size: {{ section.settings.background_size }};
+    background-repeat: {{ section.settings.background_repeat }};
+    opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
+  "></div>
+
+  <div class="three-columns-container">
+    <div class="three-columns-wrapper">
+      {% for block in section.blocks %}
+        <div class="column-box" style="
+          background-color: {{ block.settings.box_background }};
+          color: {{ block.settings.text_color }};
+        ">
+          <h3 class="column-title" style="color: {{ block.settings.title_color }};">
+            {{ block.settings.title }}
+          </h3>
+          <div class="column-content">
+            {{ block.settings.content }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "3 Columns",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "label": "Image Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background Size",
+      "options": [
+        {"value": "cover", "label": "Cover"},
+        {"value": "contain", "label": "Contain"},
+        {"value": "auto", "label": "Auto"}
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "background_repeat",
+      "label": "Background Repeat",
+      "options": [
+        {"value": "no-repeat", "label": "No Repeat"},
+        {"value": "repeat", "label": "Repeat"},
+        {"value": "repeat-x", "label": "Repeat X"},
+        {"value": "repeat-y", "label": "Repeat Y"}
+      ],
+      "default": "no-repeat"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Column Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Column content</p>"
+        },
+        {
+          "type": "color",
+          "id": "box_background",
+          "label": "Box Background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#2A2A2A"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#555555"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "3 Columns",
+      "category": "Custom Sections",
+      "blocks": [
+        {"type": "column"},
+        {"type": "column"},
+        {"type": "column"}
+      ]
+    }
+  ]
+}
+{% endschema %}

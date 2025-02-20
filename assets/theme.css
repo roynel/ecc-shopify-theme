@@ -881,6 +881,75 @@ a {
   }
 }
 
+/* ===== 3 Columns Section ===== */
+.cc-three-columns {
+  padding: 4rem 2rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.three-columns-background-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.three-columns-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.three-columns-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.three-columns-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.column-box {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.column-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.column-content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .three-columns-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .column-box {
+    padding: 1.5rem;
+  }
+  
+  .column-title {
+    font-size: 1.25rem;
+  }
+}
+
 /* ===== Footer ===== */
 .footer {
   background: #000;
