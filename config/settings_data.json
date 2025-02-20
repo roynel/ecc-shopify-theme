@@ -61,7 +61,7 @@
       "newsletter": {
         "type": "newsletter",
         "settings": {
-          "heading": "Subscribe to Enchanted Newsletter",
+          "heading": "Subscribe to the Enchanted Newsletter",
           "text": "<p>Unlock exclusive offers, magical tips, and first looks at new arrivals by signing up for our email blasts! Join our mystical community to stay connected with the latest in witchcraft supplies, spell kits, and enchanting products.</p>",
           "placeholder": "Your email",
           "button_text": "Subscribe",
