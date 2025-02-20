@@ -10,16 +10,20 @@
   "></div>
   
   <div class="newsletter-content">
-    <div class="newsletter-wrapper">
-      {% if section.settings.heading != blank %}
-        <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
-      {% endif %}
-      
-      {% if section.settings.text != blank %}
-        <div class="newsletter-description">{{ section.settings.text }}</div>
-      {% endif %}
-      
-      <div class="newsletter-form">
+    <div class="newsletter-box" style="
+      background-color: {{ section.settings.box_background_color }};
+      color: {{ section.settings.text_color }};
+    ">
+      <div class="newsletter-wrapper">
+        {% if section.settings.heading != blank %}
+          <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        
+        {% if section.settings.text != blank %}
+          <div class="newsletter-description">{{ section.settings.text }}</div>
+        {% endif %}
+        
+        <div class="newsletter-form">
         {% form 'customer' %}
           <input type="hidden" name="contact[tags]" value="newsletter">
           <div class="input-group">
@@ -48,7 +52,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Subscribe to Magick"
+      "default": "Subscribe to the Enchanted Newsletter"
     },
     {
       "type": "richtext",
@@ -67,6 +71,22 @@
       "id": "button_text",
       "label": "Button Text",
       "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "Content Box Settings"
+    },
+    {
+      "type": "color",
+      "id": "box_background_color",
+      "label": "Box Background Color",
+      "default": "rgba(255,255,255,0.1)"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
     },
     {
       "type": "header",
