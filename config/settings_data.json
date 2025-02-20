@@ -92,6 +92,18 @@
           "background_size": "auto",
           "background_repeat": "repeat"
         }
+      },
+      "horizontal-products": {
+        "type": "horizontal-products",
+        "settings": {
+          "heading": "Featured Products",
+          "text": "<p>Explore our curated selection of magical items</p>",
+          "button_text": "View All",
+          "button_link": "",
+          "collection": "opening-collection",
+          "background_color": "#FFFFFF",
+          "text_color": "#2A2A2A"
+        }
       }
     },
     "content_for_index": []
