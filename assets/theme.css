@@ -262,7 +262,7 @@ a {
 
 /* ===== Collections List ===== */
 .cc-collection-list {
-  padding: 4rem 0;
+  padding: 2rem 0;
   position: relative;
   isolation: isolate;
 }
