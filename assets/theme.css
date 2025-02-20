@@ -262,7 +262,7 @@ a {
 
 /* ===== Collections List ===== */
 .cc-collection-list {
-  padding: 4rem 2rem;
+  padding: 4rem 0;
   position: relative;
   isolation: isolate;
 }
@@ -303,6 +303,10 @@ a {
 
 .collection-grid::-webkit-scrollbar {
   display: none;
+}
+
+.collection-grid:first-child {
+  margin-left: 2rem;
 }
 
 .collection-card {
