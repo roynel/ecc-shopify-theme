@@ -86,10 +86,11 @@
             "tumbled-stones"
           ],
           "title_color": "#ffffff",
-          "background_color": "#3e3838",
-          "background_opacity": 100,
-          "background_size": "cover",
-          "background_repeat": "no-repeat"
+          "background_image": "shopify://shop_images/witchy-bg-repeat-2.jpg",
+          "background_color": "#2d0053",
+          "background_opacity": 30,
+          "background_size": "auto",
+          "background_repeat": "repeat"
         }
       }
     },
