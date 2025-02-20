@@ -583,16 +583,21 @@ a {
 .horizontal-products-container {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 3rem;
+  gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  align-items: center;
 }
 
 .content-column {
   max-width: 350px;
   padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical centering within column */
+  height: 100%;
 }
 
 .section-heading {
