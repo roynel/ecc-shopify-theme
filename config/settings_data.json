@@ -65,7 +65,7 @@
           "text": "<p>Unlock exclusive offers, magical tips, and first looks at new arrivals by signing up for our email blasts! Join our mystical community to stay connected with the latest in witchcraft supplies, spell kits, and enchanting products.</p>",
           "placeholder": "Your email",
           "button_text": "Subscribe",
-          "box_background_color": "#ffffff",
+          "box_background_color": "rgba(0,0,0,0)",
           "text_color": "#ffffff",
           "background_image": "shopify://shop_images/witch-table.jpg",
           "background_color": "#1a1730",
