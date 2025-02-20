@@ -45,6 +45,7 @@
               {% if product.compare_at_price > product.price %}
                 <div class="compare-price">{{ product.compare_at_price | money }}</div>
               {% endif %}
+              <button class="add-to-cart" data-product-id="{{ product.id }}">Add to Cart</button>
             </div>
           </div>
         {% endfor %}
