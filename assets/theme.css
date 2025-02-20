@@ -297,16 +297,12 @@ a {
   gap: 2rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 1rem 0;
+  padding: 1rem 0 1rem 2rem;
   scrollbar-width: none;
 }
 
 .collection-grid::-webkit-scrollbar {
   display: none;
-}
-
-.collection-grid a:first-child {
-  margin-left: 2rem;
 }
 
 .collection-card {
