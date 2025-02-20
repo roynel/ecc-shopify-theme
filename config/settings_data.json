@@ -50,7 +50,7 @@
           "background_image": "shopify://shop_images/witchy-bg-repeat.jpg",
           "background_color": "#ffffff",
           "background_opacity": 5,
-          "background_size": "contain",
+          "background_size": "auto",
           "background_repeat": "repeat"
         }
       },
