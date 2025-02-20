@@ -950,6 +950,92 @@ a {
   }
 }
 
+/* ===== Icon Columns Section ===== */
+.cc-icon-columns {
+  padding: 3rem 2rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.icon-col-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.icon-col-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.icon-col-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-col-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.icon-col-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.icon-col-image-wrapper {
+  flex-shrink: 0;
+  width: 40px;
+}
+
+.icon-col-img {
+  width: 100%;
+  height: auto;
+  color: inherit;
+}
+
+.icon-col-content {
+  flex: 1;
+}
+
+.icon-col-heading {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.icon-col-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .icon-col-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .icon-col-item {
+    gap: 1.5rem;
+  }
+  
+  .icon-col-image-wrapper {
+    width: 32px;
+  }
+}
+
 /* ===== Footer ===== */
 .footer {
   background: #000;

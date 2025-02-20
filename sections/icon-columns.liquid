@@ -1,0 +1,140 @@
+<div class="cc-icon-columns">
+  <div class="icon-columns-background" style="
+    {% if section.settings.background_gradient != blank %}
+      background: {{ section.settings.background_gradient }};
+    {% else %}
+      background-color: {{ section.settings.background_color }};
+    {% endif %};
+  "></div>
+  
+  <div class="icon-columns-overlay" style="
+    {% if section.settings.background_image != blank %}
+      background-image: url({{ section.settings.background_image | image_url }});
+    {% endif %};
+    background-size: {{ section.settings.background_size }};
+    background-repeat: {{ section.settings.background_repeat }};
+    opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
+  "></div>
+
+  <div class="icon-columns-container">
+    <div class="icon-columns-wrapper">
+      {% for block in section.blocks %}
+        <div class="icon-col-item" style="color: {{ block.settings.text_color }};">
+            <div class="icon-col-image-wrapper">
+                {% if block.settings.icon != blank %}
+                {{ block.settings.icon | image_url: width: 100 | image_tag: class: 'icon-col-img' }}
+                {% endif %}
+            </div>
+            <div class="icon-col-content">
+                <h3 class="icon-col-heading">{{ block.settings.title }}</h3>
+                <div class="icon-col-text">{{ block.settings.text }}</div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icon Columns",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background Gradient"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "label": "Image Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background Size",
+      "options": [
+        {"value": "cover", "label": "Cover"},
+        {"value": "contain", "label": "Contain"},
+        {"value": "auto", "label": "Auto"}
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "background_repeat",
+      "label": "Background Repeat",
+      "options": [
+        {"value": "no-repeat", "label": "No Repeat"},
+        {"value": "repeat", "label": "Repeat"},
+        {"value": "repeat-x", "label": "Repeat X"},
+        {"value": "repeat-y", "label": "Repeat Y"}
+      ],
+      "default": "no-repeat"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Column Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Column text content</p>"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text & Icon Color",
+          "default": "#2A2A2A"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Columns",
+      "category": "Custom Sections",
+      "blocks": [
+        {"type": "column"},
+        {"type": "column"},
+        {"type": "column"}
+      ]
+    }
+  ]
+}
+{% endschema %}
