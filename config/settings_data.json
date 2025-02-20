@@ -162,33 +162,37 @@
           "column_38jmRJ": {
             "type": "column",
             "settings": {
-              "title": "Column Title",
-              "text": "<p>Column text content</p>",
-              "text_color": "#2A2A2A"
+              "icon": "shopify://shop_images/heart.svg",
+              "title": "New Items",
+              "text": "<p>Tons of new items added every week!</p>",
+              "text_color": "#ffffff"
             }
           },
           "column_CQ8YCt": {
             "type": "column",
             "settings": {
-              "title": "Column Title",
-              "text": "<p>Column text content</p>",
-              "text_color": "#2A2A2A"
+              "icon": "shopify://shop_images/box.svg",
+              "title": "Free Shipping over $50",
+              "text": "<p>Free shipping on all orders over 50 in the United States.</p>",
+              "text_color": "#ffffff"
             }
           },
           "column_zh4bzF": {
             "type": "column",
             "settings": {
-              "title": "Column Title",
-              "text": "<p>Column text content</p>",
-              "text_color": "#2A2A2A"
+              "icon": "shopify://shop_images/dollar.svg",
+              "title": "The Best Price",
+              "text": "<p>Most competitive pricing on more than 20,000 different items!</p>",
+              "text_color": "#ffffff"
             }
           },
           "column_afzhw8": {
             "type": "column",
             "settings": {
-              "title": "Column Title",
-              "text": "<p>Column text content</p>",
-              "text_color": "#2A2A2A"
+              "icon": "shopify://shop_images/chat-bubble.svg",
+              "title": "Need Help?",
+              "text": "<p>Call us! 800-123-45672</p><p>12-4 PM PST Mon - Fri</p>",
+              "text_color": "#ffffff"
             }
           }
         },
@@ -200,7 +204,7 @@
         ],
         "settings": {
           "background_color": "rgba(0,0,0,0)",
-          "background_gradient": "linear-gradient(127deg, rgba(254, 217, 81, 1) 11%, rgba(255, 70, 199, 1) 81%)",
+          "background_gradient": "linear-gradient(114deg, rgba(155, 138, 255, 1) 20%, rgba(45, 0, 83, 1) 80%)",
           "background_opacity": 100,
           "background_size": "cover",
           "background_repeat": "no-repeat"
