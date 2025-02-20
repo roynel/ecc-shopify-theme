@@ -66,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.placeholder.style.opacity = elements.input.value ? '0' : '1';
       });
 
+      // Start animation
+      animate();
+
       animationFrame = setTimeout(animate, isDeleting ? animationSpeed.delete : animationSpeed.type);
     }
 
