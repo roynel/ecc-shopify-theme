@@ -1,5 +1,5 @@
 <div class="cc-icon-columns">
-  <div class="icon-columns-background" style="
+  <div class="icon-col-background" style="
     {% if section.settings.background_gradient != blank %}
       background: {{ section.settings.background_gradient }};
     {% else %}
@@ -7,7 +7,7 @@
     {% endif %};
   "></div>
   
-  <div class="icon-columns-overlay" style="
+  <div class="icon-col-overlay" style="
     {% if section.settings.background_image != blank %}
       background-image: url({{ section.settings.background_image | image_url }});
     {% endif %};
@@ -16,19 +16,19 @@
     opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
   "></div>
 
-  <div class="icon-columns-container">
-    <div class="icon-columns-wrapper">
+  <div class="icon-col-container">
+    <div class="icon-col-wrapper">
       {% for block in section.blocks %}
         <div class="icon-col-item" style="color: {{ block.settings.text_color }};">
-            <div class="icon-col-image-wrapper">
-                {% if block.settings.icon != blank %}
-                {{ block.settings.icon | image_url: width: 100 | image_tag: class: 'icon-col-img' }}
-                {% endif %}
-            </div>
-            <div class="icon-col-content">
-                <h3 class="icon-col-heading">{{ block.settings.title }}</h3>
-                <div class="icon-col-text">{{ block.settings.text }}</div>
-            </div>
+          <div class="icon-col-image-wrapper">
+            {% if block.settings.icon != blank %}
+              {{ block.settings.icon | image_url: width: 100 | image_tag: class: 'icon-col-img' }}
+            {% endif %}
+          </div>
+          <div class="icon-col-content">
+            <h3 class="icon-col-heading">{{ block.settings.title }}</h3>
+            <div class="icon-col-text">{{ block.settings.text }}</div>
+          </div>
         </div>
       {% endfor %}
     </div>

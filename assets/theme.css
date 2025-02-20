@@ -955,6 +955,7 @@ a {
   padding: 3rem 2rem;
   position: relative;
   isolation: isolate;
+  min-height: 400px;
 }
 
 .icon-col-background {
@@ -973,6 +974,7 @@ a {
   width: 100%;
   height: 100%;
   z-index: -1;
+  background-position: center;
 }
 
 .icon-col-container {
@@ -980,29 +982,36 @@ a {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  height: 100%;
 }
 
 .icon-col-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
 }
 
 .icon-col-item {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: flex-start;
+  padding: 1.5rem;
 }
 
 .icon-col-image-wrapper {
   flex-shrink: 0;
-  width: 40px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-col-img {
   width: 100%;
   height: auto;
-  color: inherit;
+  object-fit: contain;
 }
 
 .icon-col-content {
@@ -1010,29 +1019,51 @@ a {
 }
 
 .icon-col-heading {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
+  line-height: 1.3;
 }
 
 .icon-col-text {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
   opacity: 0.9;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .icon-col-wrapper {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cc-icon-columns {
+    padding: 2rem 1rem;
+    min-height: auto;
   }
   
-  .icon-col-item {
+  .icon-col-wrapper {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
+  .icon-col-item {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
   .icon-col-image-wrapper {
-    width: 32px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon-col-heading {
+    font-size: 1.1rem;
+  }
+  
+  .icon-col-text {
+    font-size: 0.95rem;
   }
 }
 
