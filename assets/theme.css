@@ -305,7 +305,7 @@ a {
   display: none;
 }
 
-.collection-grid:first-child {
+.collection-grid a:first-child {
   margin-left: 2rem;
 }
 
