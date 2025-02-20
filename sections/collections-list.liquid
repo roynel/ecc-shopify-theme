@@ -1,0 +1,70 @@
+{% comment %} sections/collections-list.liquid {% endcomment %}
+<div class="cc-collection-list">
+  <div class="collection-list-container">
+    {% if section.settings.title != blank %}
+      <h2 class="section-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    
+    <div class="collection-grid">
+      {% for collection in collections %}
+        <a href="{{ collection.url }}" class="collection-card">
+          <div class="collection-image">
+            {% if collection.featured_image %}
+              <img src="{{ collection.featured_image | image_url: width: 400 }}"
+                   alt="{{ collection.title }}"
+                   loading="lazy">
+            {% else %}
+              <div class="placeholder-image">{{ collection.title | slice: 0 }}</div>
+            {% endif %}
+          </div>
+          <h3 class="collection-title">{{ collection.title }}</h3>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Shop Collections"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2A2A2A"
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#FFFFFF",
+      "label": "Background Color"
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "label": "Background Opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ]
+}
+{% endschema %}
