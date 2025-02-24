@@ -1016,7 +1016,7 @@ a {
   fill: currentColor !important;
 }
 
-/*.icon-col-img {
+.icon-col-img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -1024,7 +1024,7 @@ a {
 
 .icon-col-content {
   flex: 1;
-}*/
+}
 
 .icon-col-heading {
   font-size: 0.95rem;
