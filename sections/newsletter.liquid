@@ -24,21 +24,28 @@
         {% endif %}
         
         <div class="newsletter-form">
-        {% form 'customer' %}
-          <input type="hidden" name="contact[tags]" value="newsletter" />
-          <div class="input-group">
+          {% form 'customer' %}
             <input 
-              type="email"
-              name="contact[email]"
-              placeholder="{{ section.settings.placeholder }}"
-              required
-              class="newsletter-input"
-            />
-            <button type="submit" class="newsletter-button">
-              {{ section.settings.button_text }}
-            </button>
-          </div>
-        {% endform %}
+              type="hidden" 
+              name="contact[tags]" 
+              value="newsletter" 
+            /> {% comment %} Added closing slash {% endcomment %}
+            
+            <div class="input-group">
+              <input 
+                type="email"
+                name="contact[email]"
+                placeholder="{{ section.settings.placeholder }}"
+                required
+                class="newsletter-input"
+              /> {% comment %} Added closing slash {% endcomment %}
+              
+              <button type="submit" class="newsletter-button">
+                {{ section.settings.button_text }}
+              </button>
+            </div>
+          {% endform %}
+        </div>
       </div>
     </div>
   </div>
