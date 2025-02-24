@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   animate();
 });
 
+
+
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger-menu');
@@ -82,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
 
 // Horizontal scroll functionality for icon-columns.liquid
 function initIconColumnsScroll() {
@@ -133,3 +137,49 @@ function initIconColumnsScroll() {
 // Initialize on load and resize
 document.addEventListener('DOMContentLoaded', initIconColumnsScroll);
 window.addEventListener('resize', initIconColumnsScroll);
+
+
+
+// SVG Color Handler
+function updateIconColors() {
+  document.querySelectorAll('.icon-col-item').forEach(item => {
+    const textColor = getComputedStyle(item).color;
+    const img = item.querySelector('img');
+    
+    // Convert text color to filter values
+    const hexColor = textColor.startsWith('#') ? textColor : '#000000';
+    const invertValue = hexColor === '#000000' ? 1 : 0;
+    item.style.setProperty('--icon-invert', invertValue);
+    
+    // Advanced color replacement for colored SVGs
+    if (img && img.src.endsWith('.svg')) {
+      fetch(img.src)
+        .then(res => res.text())
+        .then(svgText => {
+          const parser = new DOMParser();
+          const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+          const svgElement = svgDoc.documentElement;
+          
+          // Remove existing fill attributes
+          svgElement.querySelectorAll('[fill]').forEach(el => {
+            el.removeAttribute('fill');
+          });
+          
+          // Create new SVG element
+          const newSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          newSVG.innerHTML = svgElement.innerHTML;
+          Array.from(svgElement.attributes).forEach(attr => {
+            newSVG.setAttribute(attr.name, attr.value);
+          });
+          newSVG.style.fill = textColor;
+          
+          // Replace image with SVG
+          img.parentNode.replaceChild(newSVG, img);
+        });
+    }
+  });
+}
+
+// Initialize on load and color changes
+document.addEventListener('DOMContentLoaded', updateIconColors);
+window.addEventListener('resize', updateIconColors);

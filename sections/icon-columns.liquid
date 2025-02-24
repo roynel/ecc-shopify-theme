@@ -25,7 +25,11 @@
         <div class="icon-col-item" style="color: {{ block.settings.text_color }};">
           <div class="icon-col-image-wrapper">
             {% if block.settings.icon != blank %}
-              {{ block.settings.icon | image_url: width: 80 | image_tag }}
+            {% assign icon_url = block.settings.icon | image_url: width: 100 %}
+            <img src="{{ icon_url }}" 
+                alt="{{ block.settings.title }}" 
+                loading="lazy"
+                {% if icon_url contains '.svg' %}data-svg-color="true"{% endif %}>
             {% endif %}
           </div>
           <div class="icon-col-content">

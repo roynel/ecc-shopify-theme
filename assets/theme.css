@@ -1008,12 +1008,14 @@ a {
   flex-shrink: 0;
   width: 28px;
   height: 28px;
+  color: inherit;
 }
 
 .icon-col-image-wrapper img {
   width: 100%;
   height: 100%;
-  fill: currentColor !important;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(var(--icon-invert)) sepia(100%) saturate(0%) hue-rotate(0deg);
 }
 
 .icon-col-heading {
