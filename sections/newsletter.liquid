@@ -1,29 +1,26 @@
 <div class="cc-newsletter">
+  <!-- Background layers -->
   <div class="newsletter-background-color" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="newsletter-background-image" style="
     {% if section.settings.background_image != blank %}
       background-image: url({{ section.settings.background_image | image_url }});
-    {% endif %}
+    {% endif %};
     background-size: {{ section.settings.background_size }};
     background-repeat: {{ section.settings.background_repeat }};
     opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
   "></div>
   
-  <div class="newsletter-content">
-    <div class="newsletter-box" style="
-      background-color: {{ section.settings.box_background_color }};
-      color: {{ section.settings.text_color }};
-    ">
-      <div class="newsletter-wrapper">
-        {% if section.settings.heading != blank %}
-          <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
-        {% endif %}
-        
-        {% if section.settings.text != blank %}
-          <div class="newsletter-description">{{ section.settings.text }}</div>
-        {% endif %}
-        
-        <div class="newsletter-form">
+  <div class="newsletter-container">
+    <div class="newsletter-content">
+      {% if section.settings.heading != blank %}
+        <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      
+      {% if section.settings.text != blank %}
+        <div class="newsletter-description">{{ section.settings.text }}</div>
+      {% endif %}
+      
+      <div class="newsletter-form">
         {% form 'customer' %}
           <input type="hidden" name="contact[tags]" value="newsletter">
           <div class="input-group">
@@ -32,14 +29,22 @@
               name="contact[email]"
               placeholder="{{ section.settings.placeholder }}"
               required
-              class="newsletter-input"
             >
-            <button type="submit" class="newsletter-button">
+            <button type="submit">
               {{ section.settings.button_text }}
             </button>
           </div>
-        {% endform %}
+        {% endform %} {% comment %} Ensure form is properly closed {% endcomment %}
       </div>
+    </div>
+    <div class="newsletter-image">
+      {% if section.settings.image != blank %}
+        <img 
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="lazy"
+        > {% comment %} Self-closing img tag {% endcomment %}
+      {% endif %}
     </div>
   </div>
 </div>
