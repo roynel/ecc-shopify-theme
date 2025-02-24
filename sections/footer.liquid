@@ -1,25 +1,52 @@
-<footer class="footer">
-  <div class="footer-content">
+<footer class="site-footer">
+  <div class="footer-container">
     <div class="footer-column">
-      <h4>Magick</h4>
-      <p>© {{ "now" | date: "%Y" }} Magick. All rights reserved.</p>
+      <h3 class="footer-heading">Magick Menu</h3>
+      <ul class="footer-links">
+        <li><a href="/pages/shipping">Shipping Cost</a></li>
+        <li><a href="/pages/discrete-shipping">Discrete Shipping</a></li>
+        <li><a href="/pages/wishlist">My Wishlist</a></li>
+        <li><a href="/pages/rewards">Rewards</a></li>
+      </ul>
     </div>
+
     <div class="footer-column">
-      <h4>Resources</h4>
-      <a href="/blogs/news">Magick News</a>
-      <a href="/pages/documentation">Documentation</a>
+      <h3 class="footer-heading">Policies</h3>
+      <ul class="footer-links">
+        <li><a href="/pages/contact">Contact Us</a></li>
+        <li><a href="/pages/faqs">FAQ’s</a></li>
+        <li><a href="/pages/returns">Return Policy</a></li>
+        <li><a href="/pages/shipping-policy">Shipping Policy</a></li>
+        <li><a href="/pages/privacy">Privacy Policy</a></li>
+        <li><a href="/pages/terms">Terms and Conditions</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+      </ul>
     </div>
+
+    <div class="footer-column newsletter-column">
+      <h3 class="footer-heading">Newsletter</h3>
+      <p class="newsletter-text">Sign up for exclusive discounts, flash sales, secret discount codes, access to new releases, and so much more!</p>
+      {% form 'customer' %}
+        <input type="email" name="contact[email]" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      {% endform %}
+    </div>
+
     <div class="footer-column">
-      <h4>Legal</h4>
-      <a href="/policies/privacy-policy">Privacy Policy</a>
-      <a href="/policies/terms-of-service">Terms of Service</a>
+      <h3 class="footer-heading">About Magick</h3>
+      <p class="about-text">Unlock the mystical potential within with Magick.com. Discover affordable Wicca and spiritual supplies to enhance your practice and embark on a transformative journey. Experience the wonders today!</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="language-selector">
+      <select>
+        <option>United States (USD $)</option>
+        <!-- Add other country options -->
+      </select>
+    </div>
+    <div class="copyright">
+      © {{ 'now' | date: "%Y" }} Magick.
     </div>
   </div>
 </footer>
-
-{% schema %}
-{
-  "name": "Footer",
-  "settings": []
-}
-{% endschema %}
