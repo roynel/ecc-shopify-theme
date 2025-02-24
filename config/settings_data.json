@@ -191,7 +191,7 @@
             "settings": {
               "icon": "shopify://shop_images/chat-bubble.svg",
               "title": "Need Help?",
-              "text": "<p>Call us! 800-123-45672</p><p>12-4 PM PST Mon - Fri</p>",
+              "text": "<p>Call us! 800-123-45672<br/>12-4 PM PST Mon - Fri</p>",
               "text_color": "#ffffff"
             }
           }
