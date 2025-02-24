@@ -952,9 +952,10 @@ a {
 
 /* ===== Compact Icon Columns Section ===== */
 .cc-icon-columns {
-  padding: 2rem 1rem;
+  padding: 1rem;
   position: relative;
   isolation: isolate;
+  overflow: hidden;
 }
 
 .icon-col-background {
@@ -980,33 +981,42 @@ a {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
 }
 
 .icon-col-wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  align-items: start;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 0.5rem;
+}
+
+.icon-col-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .icon-col-item {
+  flex: 0 0 calc(25% - 1.125rem);
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   align-items: center;
-  padding: 0.5rem;
+  min-width: 240px;
 }
 
 .icon-col-image-wrapper {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 28px;
+  height: 28px;
 }
 
-.icon-col-img {
+.icon-col-image-wrapper svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor !important;
+}
+
+/*.icon-col-img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -1014,22 +1024,49 @@ a {
 
 .icon-col-content {
   flex: 1;
-}
+}*/
 
 .icon-col-heading {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.1rem;
   line-height: 1.2;
 }
 
 .icon-col-text {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  opacity: 0.9;
+  font-size: 0.8rem;
+  line-height: 1.3;
 }
 
-@media (max-width: 1024px) {
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 2;
+}
+
+.scroll-arrow.left {
+  left: 1rem;
+}
+
+.scroll-arrow.right {
+  right: 1rem;
+}
+
+@media (max-width: 1280px) {
+  .scroll-arrow {
+    display: block;
+  }
+}
+
+/*@media (max-width: 1024px) {
   .icon-col-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -1058,7 +1095,7 @@ a {
   .icon-col-text {
     font-size: 0.8rem;
   }
-}
+}*/
 
 /* ===== Footer ===== */
 .footer {

@@ -1,3 +1,4 @@
+// Search animation
 document.addEventListener('DOMContentLoaded', () => {
   // Configuration
   const words = ["books", "boxes", "tiles", "chainmail", "spell kits", "bracelets"]; // Add words in desired order
@@ -59,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Start animation
   animate();
+});
 
-  // Mobile Menu Toggle
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger-menu');
   const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -79,3 +82,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Horizontal scroll functionality for icon-columns.liquid
+function initIconColumnsScroll() {
+  const containers = document.querySelectorAll('.icon-col-wrapper');
+  
+  containers.forEach(container => {
+    const arrows = container.closest('.cc-icon-columns').querySelectorAll('.scroll-arrow');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Arrow click handlers
+    arrows.forEach(arrow => {
+      arrow.addEventListener('click', () => {
+        const scrollAmount = container.clientWidth * 0.8;
+        container.scrollBy({
+          left: arrow.classList.contains('left') ? -scrollAmount : scrollAmount,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Touch/swipe handlers
+    container.addEventListener('scroll', () => {
+      arrows[0].style.display = container.scrollLeft > 0 ? 'block' : 'none';
+      arrows[1].style.display = container.scrollLeft + container.clientWidth < container.scrollWidth ? 'block' : 'none';
+    });
+
+    // Mouse drag handlers
+    container.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => { isDown = false; });
+    container.addEventListener('mouseup', () => { isDown = false; });
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+  });
+}
+
+// Initialize on load and resize
+document.addEventListener('DOMContentLoaded', initIconColumnsScroll);
+window.addEventListener('resize', initIconColumnsScroll);
