@@ -1,9 +1,9 @@
 <div class="cc-newsletter">
   <div class="newsletter-background-color" style="background-color: {{ section.settings.background_color }};"></div>
   <div class="newsletter-background-image" style="
-    {% if section.settings.background_image != blank %}
+    {%- if section.settings.background_image != blank -%}
       background-image: url({{ section.settings.background_image | image_url }});
-    {% endif %}
+    {%- endif -%}
     background-size: {{ section.settings.background_size }};
     background-repeat: {{ section.settings.background_repeat }};
     opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
@@ -15,34 +15,39 @@
       color: {{ section.settings.text_color }};
     ">
       <div class="newsletter-wrapper">
-        {% if section.settings.heading != blank %}
+        {%- if section.settings.heading != blank -%}
           <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
-        {% endif %}
+        {%- endif -%}
         
-        {% if section.settings.text != blank %}
+        {%- if section.settings.text != blank -%}
           <div class="newsletter-description">{{ section.settings.text }}</div>
-        {% endif %}
+        {%- endif -%}
         
         <div class="newsletter-form">
-        {% form 'customer' %}
-          <input type="hidden" name="contact[tags]" value="newsletter" />
-          <div class="input-group">
+          {% form 'customer' %}
             <input 
-              type="email"
-              name="contact[email]"
-              placeholder="{{ section.settings.placeholder }}"
-              required
-              class="newsletter-input"
+              type="hidden" 
+              name="contact[tags]" 
+              value="newsletter" 
             />
-            <button type="submit" class="newsletter-button">
-              {{ section.settings.button_text }}
-            </button>
-          </div>
-        {% endform %}
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="input-group">
+              <input 
+                type="email"
+                name="contact[email]"
+                placeholder="{{ section.settings.placeholder }}"
+                required
+                class="newsletter-input"
+              />
+              <button type="submit" class="newsletter-button">
+                {{ section.settings.button_text }}
+              </button>
+            </div>
+          {% endform %}
+        </div>
+      </div> {% comment %} Closes .newsletter-wrapper {% endcomment %}
+    </div> {% comment %} Closes .newsletter-box {% endcomment %}
+  </div> {% comment %} Closes .newsletter-content {% endcomment %}
+</div> {% comment %} Closes .cc-newsletter {% endcomment %}
 
 {% schema %}
 {
